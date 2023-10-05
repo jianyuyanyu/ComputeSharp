@@ -364,7 +364,7 @@ jobs:
   publish-nightlies-github:
     needs: [run-tests, run-tests-d3d12ma, run-tests-win2d, run-samples, run-samples-aot, verify-packages]
     runs-on: windows-2022
-    if: ${{github.event_name == 'push'}}
+    if: ${{github.event_name == 'pull_request'}}
     steps:
     - uses: actions/download-artifact@v3
       with:
@@ -378,7 +378,7 @@ jobs:
   publish-nightlies-azure-devops:
     needs: [run-tests, run-tests-d3d12ma, run-tests-win2d, run-samples, run-samples-aot, verify-packages]
     runs-on: windows-2022
-    if: ${{github.event_name == 'push'}}
+    if: ${{github.event_name == 'pull_request'}}
     steps:
     - uses: actions/download-artifact@v3
       with:
